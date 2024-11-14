@@ -16,6 +16,11 @@ def data():
 def index():
     return send_from_directory("static", "index.html")
 
+# Route to serve the main HTML file
+@app.route('/mirage')
+def mirage():
+    return send_from_directory("static", "mirage.html")
+
 # Route to serve pages dynamically
 @app.route('/pages/<path:page>')
 def serve_page(page):

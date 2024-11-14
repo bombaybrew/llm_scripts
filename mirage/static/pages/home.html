@@ -1,11 +1,15 @@
 <div x-data="{ products: [] }" hx-get="/data" hx-trigger="load" hx-target="#product-list">
   <h2>Products</h2>
-  <div id="product-list" x-data>
+
+  <h3> Adding a sub title here. </h3>
+
+  <div>Showing a simple product here</div>
+  <!-- <div id="product-list" x-data>
     <template x-for="product in products" :key="product.id">
       <div x-data="{ product }" class="product-tile">
         <h3 x-text="product.name"></h3>
         <p x-text="product.price"></p>
       </div>
     </template>
-  </div>
+  </div> -->
 </div>

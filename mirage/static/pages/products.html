@@ -1,10 +1,12 @@
 <div x-data="{ notifications: [] }" hx-get="/data" hx-trigger="load" hx-target="#notification-list">
   <h2>Notifications</h2>
-  <div id="notification-list">
+
+  <div>showing a simple notif here</div>
+  <!-- <div id="notification-list">
     <template x-for="notification in notifications" :key="notification.id">
       <div class="notification-tile" x-data="{ notification }">
         <p x-text="notification.message"></p>
       </div>
     </template>
-  </div>
+  </div> -->
 </div>

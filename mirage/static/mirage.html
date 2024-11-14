@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Version Simulator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .mobile-simulator {
+            width: 375px; /* Width of a typical mobile device */
+            height: 667px; /* Height of a typical mobile device */
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Your Main Content</h1>
+        <p>This is where your main content goes.</p>
+    </div>
+    <div class="mobile-simulator">
+        <iframe src="http://127.0.0.1:5000/" title="Mobile Version"></iframe>
+    </div>
+</body>
+</html>
