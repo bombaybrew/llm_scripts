@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Web App with htmx & Alpine</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+</head>
+<body x-data="{ currentPage: 'home' }">
+  <h1>Simple Web App</h1>
+  
+  <!-- Navigation -->
+  <nav>
+    <button @click="currentPage = 'home'" :class="{ 'active': currentPage === 'home' }">Home</button>
+    <button @click="currentPage = 'products'" :class="{ 'active': currentPage === 'products' }">Products</button>
+  </nav>
+  
+  <!-- Page Content -->
+  <div>
+    <div hx-get="/pages/home.html" hx-trigger="load" x-show="currentPage === 'home'"></div>
+    <div hx-get="/pages/products.html" hx-trigger="load" x-show="currentPage === 'products'"></div>
+  </div>
+</body>
+</html>
