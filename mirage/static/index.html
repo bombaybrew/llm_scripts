@@ -1,25 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Web App with htmx & Alpine</title>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample App</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.0.0/dist/full.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://unpkg.com/htmx.org@1.9.3"></script>
 </head>
-<body x-data="{ currentPage: 'home' }">
-  <h1>Simple Web App</h1>
-  
-  <!-- Navigation -->
-  <nav>
-    <button @click="currentPage = 'home'" :class="{ 'active': currentPage === 'home' }">Home</button>
-    <button @click="currentPage = 'products'" :class="{ 'active': currentPage === 'products' }">Products</button>
-  </nav>
-  
-  <!-- Page Content -->
-  <div>
-    <div hx-get="/pages/home.html" hx-trigger="load" x-show="currentPage === 'home'"></div>
-    <div hx-get="/pages/products.html" hx-trigger="load" x-show="currentPage === 'products'"></div>
-  </div>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Top Title Bar -->
+    <header class="bg-primary text-white p-4 flex justify-between items-center">
+        <h1 class="text-lg font-bold">My Webpage</h1>
+        <button class="btn btn-ghost btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M8 11a5 5 0 1110 0 5 5 0 01-10 0z" />
+            </svg>
+        </button>
+    </header>
+
+    <!-- Middle Content Section -->
+    <main class="flex-grow p-4">
+
+      <div hx-get="components/search.html" hx-trigger="load" hx-swap="innerHTML">
+      </div>
+
+
+        <!-- Content goes here -->
+        <div class="grid grid-cols-1 gap-4">
+            <div class="card bg-base-100 shadow-md p-4">
+                <h2 class="card-title">Product 1</h2>
+                <p>Details about product 1.</p>
+            </div>
+            <div class="card bg-base-100 shadow-md p-4">
+                <h2 class="card-title">Product 2</h2>
+                <p>Details about product 2.</p>
+            </div>
+            <!-- Add more products as needed -->
+
+            <div id="product-detail" hx-get="components/product-tile.html?name=xbox&price=1000" hx-trigger="load" hx-swap="innerHTML" hx-params="name:'xbox'">
+            </div>
+
+            <!-- <button hx-get="components/product-tile.html" hx-target="#product-detail">Get Some HTML</button> -->
+        </div>
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bg-base-200 p-4 flex justify-around items-center">
+        <button class="btn btn-ghost btn-sm">
+            <span>Home</span>
+        </button>
+        <button class="btn btn-ghost btn-sm">
+            <span>Favorites</span>
+        </button>
+        <button class="btn btn-ghost btn-sm">
+            <span>Profile</span>
+        </button>
+        <button class="btn btn-ghost btn-sm">
+            <span>Settings</span>
+        </button>
+    </nav>
+
 </body>
 </html>
