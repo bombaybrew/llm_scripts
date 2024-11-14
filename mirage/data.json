@@ -1,0 +1,10 @@
+{
+  "products": [
+    { "id": 1, "name": "Product A", "price": "$10" },
+    { "id": 2, "name": "Product B", "price": "$15" }
+  ],
+  "notifications": [
+    { "id": 1, "message": "New sale on Product A!" },
+    { "id": 2, "message": "Product B is out of stock." }
+  ]
+}
