@@ -29,24 +29,8 @@
       <div hx-get="components/search.html" hx-trigger="load" hx-swap="innerHTML">
       </div>
 
-
         <!-- Content goes here -->
-        <div class="grid grid-cols-1 gap-4">
-            <div class="card bg-base-100 shadow-md p-4">
-                <h2 class="card-title">Product 1</h2>
-                <p>Details about product 1.</p>
-            </div>
-            <div class="card bg-base-100 shadow-md p-4">
-                <h2 class="card-title">Product 2</h2>
-                <p>Details about product 2.</p>
-            </div>
-            <!-- Add more products as needed -->
 
-            <div id="product-detail" hx-get="components/product-tile.html?name=xbox&price=1000" hx-trigger="load" hx-swap="innerHTML" hx-params="name:'xbox'">
-            </div>
-
-            <!-- <button hx-get="components/product-tile.html" hx-target="#product-detail">Get Some HTML</button> -->
-        </div>
     </main>
 
     <!-- Bottom Navigation Bar -->

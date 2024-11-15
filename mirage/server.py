@@ -1,5 +1,5 @@
-from flask import Flask, jsonify, send_from_directory, render_template
-import json
+from flask import Flask, jsonify, send_from_directory, request
+import json, time
 import os
 
 app = Flask(__name__, static_folder="static")
@@ -21,7 +21,17 @@ def index():
 def mirage():
     return send_from_directory("static", "mirage.html")
 
+@app.route('/prompt', methods=['POST'])
+def prompt():
+    form_payload = request.form.to_dict()
+    print("Form Payload:",form_payload, request, request.form, request.args, request.values.to_dict())
+
+    time.sleep(5)
+    
+    return "Payload received", 200
+
 # Route to serve pages dynamically
+
 @app.route('/pages/<path:page>')
 def serve_page(page):
     return send_from_directory("static/pages", page)
