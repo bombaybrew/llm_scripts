@@ -1,15 +1,59 @@
-<div x-data="{ products: [] }" hx-get="/data" hx-trigger="load" hx-target="#product-list">
-  <h2>Products</h2>
-
-  <h3> Adding a sub title here. </h3>
-
-  <div>Showing a simple product here</div>
-  <!-- <div id="product-list" x-data>
-    <template x-for="product in products" :key="product.id">
-      <div x-data="{ product }" class="product-tile">
-        <h3 x-text="product.name"></h3>
-        <p x-text="product.price"></p>
-      </div>
-    </template>
-  </div> -->
+<div class="scroll-container">
+  <div class="product-item" id="1">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 1</h4>
+      <p>$9.99</p>
+  </div>
+  <div class="product-item" id="2">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 2</h4>
+      <p>$19.99</p>
+  </div>
+  <div class="product-item" id="3">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 3</h4>
+      <p>$29.99</p>
+  </div>
+  <div class="product-item" id="4">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 4</h4>
+      <p>$39.99</p>
+  </div>
+  <div class="product-item" id="5">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 5</h4>
+      <p>$49.99</p>
+  </div>
+  <div class="product-item" id="6">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 6</h4>
+      <p>$59.99</p>
+  </div>
+  <div class="product-item" id="7">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 7</h4>
+      <p>$69.99</p>
+  </div>
+  <div class="product-item" id="8">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 8</h4>
+      <p>$79.99</p>
+  </div>
+  <div class="product-item" id="9">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 9</h4>
+      <p>$89.99</p>
+  </div>
+  <div class="product-item" id="10">
+      <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt="Product Image" width="100" height="100">
+      <h4>Product 10</h4>
+      <p>$99.99</p>
+  </div>
 </div>
+
+<style>
+.scroll-container {
+  /* max-height: 100vh;
+  overflow-y: auto; */
+}
+</style>
