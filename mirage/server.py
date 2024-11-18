@@ -2,6 +2,8 @@ from flask import Flask, jsonify, send_from_directory, request
 import json, time
 import os
 
+import llm_simple as llm
+
 app = Flask(__name__, static_folder="static")
 
 # Route for JSON data
@@ -26,7 +28,8 @@ def prompt():
     form_payload = request.form.to_dict()
     print("Form Payload:",form_payload, request, request.form, request.args, request.values.to_dict())
 
-    time.sleep(5)
+    generated_code = llm.generate_code(form_payload.get("user_prompt"))
+    llm.save_code_snippet(generated_code)
     
     return "Payload received", 200
 
