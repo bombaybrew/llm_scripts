@@ -27,48 +27,32 @@
   </header>
 
   <!-- Middle Content Section -->
-  <main class="flex-grow overflow-y-auto p-4">
-      <div hx-get="pages/home.html" hx-trigger="load" hx-swap="innerHTML">
-      </div>
-    </span>
-    <!-- Content goes here -->
-
+  <main class="flex-grow overflow-y-auto p-4" id="content-area">
+    <!-- Initial content can be loaded here -->
+    <div hx-get="pages/home.html" hx-trigger="load" hx-swap="innerHTML">
+      <!-- This will be replaced with the content from home.html -->
+    </div>
   </main>
 
   <!-- Bottom Navigation Bar -->
   <nav class="bg-base-200 shadow-lg p-2 flex justify-around items-center sticky bottom-0 z-10">
-    <button class="btn btn-outline btn-sm flex flex-col items-center">
+    <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/home.html" hx-target="#content-area"
+      hx-swap="innerHTML">
       <span>Home</span>
     </button>
-    <button class="btn btn-ghost btn-sm">
+    <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/favorites.html"
+      hx-target="#content-area" hx-swap="innerHTML">
       <span>Fav</span>
     </button>
-    <button class="btn btn-ghost btn-sm">
+    <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/profile.html"
+      hx-target="#content-area" hx-swap="innerHTML">
       <span>Profile</span>
     </button>
-    <button class="btn btn-ghost btn-sm">
-      <span>sale</span>
-    </button>
-    <button class="btn btn-ghost btn-sm">
-      <span>map</span>
+    <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/recipes.html"
+      hx-target="#content-area" hx-swap="innerHTML">
+      <span>Recipes</span>
     </button>
   </nav>
-
-  <!-- <div class="btm-nav">
-    <button>
-     
-      <span class="btm-nav-label">Home</span>
-    </button>
-    <button class="active">
-     
-      <span class="btm-nav-label">Warnings</span>
-    </button>
-    <button>
-     
-      <span class="btm-nav-label">Statics</span>
-    </button>
-  </div> -->
-
 </body>
 
 </html>
