@@ -6,9 +6,30 @@ llm = ChatOpenAI(model="gpt-4o-mini")
 
 def generate_code(prompt):
 
+    define_nav(prompt)
+    define_home(prompt)
+
+    return True
+
+def define_nav(prompt):
     messages = [
         SystemMessage(
-            content="You are a web development expert, and you are tasked with creating a code snippet that goes as content of single html page. Respond only with code and nothing else or else the code workflow will break. skip header footer and other tags. just wrap content in a div. please add necessary style element along."
+            content="""You are a web development expert.
+                     for the given user requirement, decide 4 tabs that are needed for the web app and then write only the nav component.
+                     Just return the html and nothing else or else the code will break.
+                     Keep the tab names short.
+                     use following as example for home and fav tab
+                     <nav class="bg-base-200 shadow-lg p-2 flex justify-around items-center sticky bottom-0 z-10">
+                        <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/home.html" hx-target="#content-area"
+                            hx-swap="innerHTML">
+                            <span>Home</span>
+                        </button>
+                        <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/fav.html"
+                            hx-target="#content-area" hx-swap="innerHTML">
+                            <span>Fav</span>
+                        </button>
+                        </nav>"""
+                     
         ),
         HumanMessage(
             content=prompt
@@ -16,18 +37,40 @@ def generate_code(prompt):
     ]
 
     result = llm.invoke(messages)
-    generated_code = result.content
-    match = re.search(r'```html\n(.*?)\n```', generated_code, re.DOTALL)
+    nav_code = result.content
+    match = re.search(r'```html\n(.*?)\n```', nav_code, re.DOTALL)
 
     if match:
-        generated_code = match.group(1)
+        nav_code = match.group(1)
 
-    print(generated_code)
+    print(nav_code)
+    with open('static/components/nav.html', 'w') as f:
+        f.write(nav_code)
+    return True
 
-    return generated_code
 
-# Save the generated code snippet to a file
-def save_code_snippet(code):
-    print("code being written:", code)
+def define_home(prompt):
+    messages = [
+        SystemMessage(
+            content=("You are a web development expert."
+                     "for the given user requirement, write the content of the home page."
+                     "Wrap the content in a div tab. this content will be displayed withing a container which already has required html setup and uses tailwind css."
+                     " Just return the html and nothing else or else the code will break."
+                     )
+        ),
+        HumanMessage(
+            content=prompt
+        )
+    ]
+
+    result = llm.invoke(messages)
+    home_code = result.content
+    match = re.search(r'```html\n(.*?)\n```', home_code, re.DOTALL)
+
+    if match:
+        home_code = match.group(1)
+
+    print(home_code)
     with open('static/pages/home.html', 'w') as f:
-        f.write(code)
+        f.write(home_code)
+    return True

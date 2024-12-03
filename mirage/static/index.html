@@ -35,24 +35,7 @@
   </main>
 
   <!-- Bottom Navigation Bar -->
-  <nav class="bg-base-200 shadow-lg p-2 flex justify-around items-center sticky bottom-0 z-10">
-    <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/home.html" hx-target="#content-area"
-      hx-swap="innerHTML">
-      <span>Home</span>
-    </button>
-    <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/favorites.html"
-      hx-target="#content-area" hx-swap="innerHTML">
-      <span>Fav</span>
-    </button>
-    <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/profile.html"
-      hx-target="#content-area" hx-swap="innerHTML">
-      <span>Profile</span>
-    </button>
-    <button class="btn btn-outline btn-sm flex flex-col items-center" hx-get="pages/recipes.html"
-      hx-target="#content-area" hx-swap="innerHTML">
-      <span>Recipes</span>
-    </button>
-  </nav>
-</body>
+  <div hx-get="components/nav.html" hx-trigger="load" hx-swap="innerHTML"></div>
 
+</body>
 </html>

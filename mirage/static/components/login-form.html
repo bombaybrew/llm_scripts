@@ -1,0 +1,17 @@
+<form x-data="{ email: '', password: '' }" @submit.prevent="alert('Logging in with ' + email)" class="max-w-sm mx-auto p-4 border rounded shadow">
+    <h2 class="text-lg font-bold mb-4">Login</h2>
+    <div class="mt-2">
+        <label for="email" class="block">Email:</label>
+        <input type="email" x-model="email" id="email" class="border p-2 w-full rounded" required>
+    </div>
+    <div class="mt-2">
+        <label for="password" class="block">Password:</label>
+        <input type="password" x-model="password" id="password" class="border p-2 w-full rounded" required>
+    </div>
+    <button type="submit" class="mt-4 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition border border-blue-700">
+        Login
+    </button>
+    <div class="mt-4 text-center">
+        <a href="#" class="text-blue-500 hover:underline">Forgot Password?</a>
+    </div>
+</form>

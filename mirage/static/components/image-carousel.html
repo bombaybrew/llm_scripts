@@ -1,0 +1,9 @@
+<div x-data="{ current: 0, images: ['https://via.placeholder.com/300', 'https://via.placeholder.com/300/ff0000', 'https://via.placeholder.com/300/00ff00'] }">
+    <div class="relative">
+        <template x-for="(image, index) in images" :key="index">
+            <img x-show="current === index" :src="image" class="w-full h-64 object-cover" alt="Carousel Image">
+        </template>
+        <button @click="current = (current > 0) ? current - 1 : images.length - 1" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2">Prev</button>
+        <button @click="current = (current < images.length - 1) ? current + 1 : 0" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2">Next</button>
+    </div>
+</div>

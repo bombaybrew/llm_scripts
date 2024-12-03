@@ -1,4 +1,11 @@
-<div x-data="{ product }" class="product-tile">
-  <h3 x-text="product.name"></h3>
-  <p x-text="product.price"></p>
+<div x-data="{ isOpen: false }" class="border p-4 rounded shadow">
+  <img src="https://via.placeholder.com/300/ff0000" alt="Product Image" class="w-full h-32 object-cover">
+  <h2 class="text-lg font-bold mt-2">Product Title</h2>
+  <p class="text-gray-600">$19.99</p>
+  <button @click="isOpen = !isOpen" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">
+      Details
+  </button>
+  <div x-show="isOpen" class="mt-2">
+      <p>This is a detailed description of the product.</p>
+  </div>
 </div>

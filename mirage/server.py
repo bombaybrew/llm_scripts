@@ -27,14 +27,11 @@ def mirage():
 def prompt():
     form_payload = request.form.to_dict()
     print("Form Payload:",form_payload, request, request.form, request.args, request.values.to_dict())
-
-    generated_code = llm.generate_code(form_payload.get("user_prompt"))
-    llm.save_code_snippet(generated_code)
+    llm.generate_code(form_payload.get("user_prompt"))
     
     return "Payload received", 200
 
 # Route to serve pages dynamically
-
 @app.route('/pages/<path:page>')
 def serve_page(page):
     return send_from_directory("static/pages", page)

@@ -1,0 +1,15 @@
+<div x-data="{ items: [{ name: 'Product 1', price: 19.99 }, { name: 'Product 2', price: 29.99 }], total: 0 }" @load="total = items.reduce((sum, item) => sum + item.price, 0)">
+    <h2 class="text-lg font-bold">Checkout</h2>
+    <ul class="mt-2">
+        <template x-for="item in items" :key="item.name">
+            <li class="flex justify-between">
+                <span x-text="item.name"></span>
+                <span x-text="'$' + item.price.toFixed(2)"></span>
+            </li>
+        </template>
+    </ul>
+    <div class="mt-4 font-bold">
+        Total: <span x-text="'$' + total.toFixed(2)"></span>
+    </div>
+    <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded">Complete Purchase</button>
+</div>

@@ -1,0 +1,35 @@
+<h1 class="text-2xl font-bold mb-4">My Component Library</h1>
+
+    <div class="grid grid-cols-1 gap-4">
+        <!-- Load Product Tile -->
+        <div>
+            <h2 class="text-xl font-bold">Product Tile</h2>
+            <div hx-get="components/product-tile.html" hx-trigger="load" hx-target="#product-tile" id="product-tile">
+                Loading...
+            </div>
+        </div>
+
+        <!-- Load Image Carousel -->
+        <div>
+            <h2 class="text-xl font-bold">Image Carousel</h2>
+            <div hx-get="components/image-carousel.html" hx-trigger="load" hx-target="#image-carousel" id="image-carousel">
+                Loading...
+            </div>
+        </div>
+
+        <!-- Load Login Form -->
+        <div>
+            <h2 class="text-xl font-bold">Login Form</h2>
+            <div hx-get="components/login-form.html" hx-trigger="load" hx-target="#login-form" id="login-form">
+                Loading...
+            </div>
+        </div>
+
+        <!-- Load Checkout Page -->
+        <div>
+            <h2 class="text-xl font-bold">Checkout Page</h2>
+            <div hx-get="components/checkout-page.html" hx-trigger="load" hx-target="#checkout-page" id="checkout-page">
+                Loading...
+            </div>
+        </div>
+    </div>
